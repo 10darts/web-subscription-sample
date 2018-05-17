@@ -20,6 +20,7 @@ if (from) {
       value: from,
       kind: 2
     },
-    scope: '/publisher-sample/'
+    scope: '/publisher-sample/',
+    serviceWorkerPath: '/publisher-sample/'
   });
 }
