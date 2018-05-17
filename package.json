@@ -1,0 +1,14 @@
+{
+  "name": "publisher-sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:10darts/publisher-sample.git",
+  "author": "Salvador Marí <salvador@10darts.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "http-server"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
