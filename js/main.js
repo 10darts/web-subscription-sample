@@ -19,6 +19,7 @@ if (from) {
       label: 'publisher',
       value: from,
       kind: 2
-    }
+    },
+    scope: '/publisher-sample/'
   });
 }
