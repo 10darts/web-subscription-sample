@@ -47,3 +47,11 @@ body {
 .content-list {
   margin: 1em;
 }
+
+.form {
+  max-width: 32em;
+}
+
+.margin-bottom {
+  margin-bottom: 1em;
+}

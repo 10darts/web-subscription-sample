@@ -23,4 +23,14 @@ if (from) {
     scope: '/publisher-sample/',
     serviceWorkerPath: '/publisher-sample/'
   });
+
+  $('#interestsForm').on('submit', function(event) {
+    event.preventDefault();
+    var interests = [];
+    $('input:checked').each(function() {
+      interests.push(this.value);
+    });
+    Tendarts.saveKey('interests', interests, 4).then(res => console.log(res));
+    return false;
+  });
 }
