@@ -21,11 +21,11 @@ if (from) {
     scope: '/publisher-sample/',
     serviceWorkerPath: '/publisher-sample/'
   });
-
+  console.log('addEventListener');
   document.addEventListener(
     'CREATE_DEVICE_EVENT',
     function() {
-      console.log('addEventListener');
+      console.log('event CREATE_DEVICE_EVENT');
       Tendarts.saveKeyInDevice('publisher', from);
       Tendarts.saveKeynInUser('publisher', from);
       $main.fadeOut();
