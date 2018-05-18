@@ -19,7 +19,7 @@ if (from) {
     scope: '/publisher-sample/',
     serviceWorkerPath: '/publisher-sample/'
   });
-  console.log('addEventListener');
+  console.log('addEventListener 1');
   document.addEventListener(
     'CREATE_DEVICE_EVENT',
     function() {
