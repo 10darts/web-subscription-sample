@@ -25,7 +25,7 @@ if (from) {
     function() {
       console.log('event CREATE_DEVICE_EVENT');
       Tendarts.saveKeyInDevice('publisher', from);
-      Tendarts.saveKeynInUser('publisher', from);
+      Tendarts.saveKeyInUser('publisher', from);
       $main.fadeOut();
       $form.fadeIn();
     },
@@ -43,9 +43,9 @@ $form.on('submit', function(event) {
     return;
   }
   var first = interests.shift();
-  Tendarts.saveKeynInUser('interests', first, 4).then(() =>
+  Tendarts.saveKeyInUser('interests', first, 4).then(() =>
     interests.forEach(function(interest) {
-      Tendarts.saveKeynInUser('interests', interest);
+      Tendarts.saveKeyInUser('interests', interest);
     })
   );
   $form.fadeOut();
