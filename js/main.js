@@ -6,7 +6,6 @@ var $main = $('#main');
 var $form = $('#interestsForm');
 var $thanks = $('#thanks');
 
-console.log(from);
 if (from) {
   //Only subscribe if param form is in the url
   Tendarts.init({
@@ -16,23 +15,28 @@ if (from) {
     autosubscribe: true,
     geolocation: false,
     debug: true,
+    cache: false,
     scope: '/publisher-sample/',
     serviceWorkerPath: '/publisher-sample/'
   });
-  console.log('addEventListener 2');
-  document.addEventListener(
-    'CREATE_DEVICE_EVENT',
-    function() {
-      console.log('event CREATE_DEVICE_EVENT');
-      Tendarts.saveKeyInDevice('publisher', from);
-      Tendarts.saveKeyInUser('publisher', from);
-      $main.fadeOut(function() {
-        $form.fadeIn();
-      });
-    },
-    false
-  );
 }
+
+document.addEventListener(
+  'CREATE_DEVICE_EVENT',
+  function() {
+    Tendarts.saveKeyInDevice('publisher', from);
+    Tendarts.saveKeyInUser('publisher', from);
+    var userAgent = UAParser();
+    Tendarts.saveKeyInUser('os', userAgent.os.name);
+    Tendarts.saveKeyInUser('os version', userAgent.os.version);
+    Tendarts.saveKeyInUser('browser', userAgent.browser.name);
+    Tendarts.saveKeyInUser('browser version', userAgent.browser.version);
+    $main.fadeOut(function() {
+      $form.fadeIn();
+    });
+  },
+  false
+);
 
 $form.on('submit', function(event) {
   event.preventDefault();
