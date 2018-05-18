@@ -1,4 +1,4 @@
-# publisher-sample
+# web-subscription-sample
 
 Example web to subscribe to notifications
 
