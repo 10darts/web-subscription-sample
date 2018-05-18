@@ -52,6 +52,11 @@ body {
   max-width: 32em;
 }
 
+.form,
+.thanks {
+  display: none;
+}
+
 .margin-bottom {
   margin-bottom: 1em;
 }

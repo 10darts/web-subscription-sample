@@ -4,10 +4,13 @@ console.log(window.location.href);
 
 var url = new URL(window.location.href);
 var from = url.searchParams.get('from');
+var $main = $('#main');
+var $form = $('#interestsForm');
+var $thanks = $('#thanks');
+
 console.log(from);
 if (from) {
   //Only subscribe if param form is in the url
-
   Tendarts.init({
     token: 'ae78ae500e964ca9f3b4bd50dc48e42f6f9f77ea',
     publicKey:
@@ -15,22 +18,35 @@ if (from) {
     autosubscribe: true,
     geolocation: false,
     debug: true,
-    key: {
-      label: 'publisher',
-      value: from,
-      kind: 2
-    },
     scope: '/publisher-sample/',
     serviceWorkerPath: '/publisher-sample/'
-  });
-
-  $('#interestsForm').on('submit', function(event) {
-    event.preventDefault();
-    var interests = [];
-    $('input:checked').each(function() {
-      interests.push(this.value);
+  })
+    .then(() => {
+      Tendarts.saveKeyInDevice('publisher', from);
+      Tendarts.saveKeynInUser('publisher', from);
+    })
+    .then(function() {
+      $main.fadeOut();
+      $form.fadeIn();
     });
-    Tendarts.saveKey('interests', interests, 4).then(res => console.log(res));
-    return false;
-  });
 }
+
+$form.on('submit', function(event) {
+  event.preventDefault();
+  var interests = [];
+  $('input:checked').each(function(i) {
+    interests.push(this.value);
+  });
+  if (!interests.length) {
+    return;
+  }
+  var first = interests.shift();
+  Tendarts.saveKeynInUser('interests', first, 4).then(() =>
+    interests.forEach(function(interest) {
+      Tendarts.saveKeynInUser('interests', interest);
+    })
+  );
+  $form.fadeOut();
+  $thanks.fadeIn();
+  return false;
+});
