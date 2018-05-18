@@ -22,9 +22,10 @@ if (from) {
     serviceWorkerPath: '/publisher-sample/'
   });
 
-  document.addEventListener(
+  window.addEventListener(
     'CREATE_DEVICE_EVENT',
     function() {
+      console.log('addEventListener');
       Tendarts.saveKeyInDevice('publisher', from);
       Tendarts.saveKeynInUser('publisher', from);
       $main.fadeOut();
