@@ -26,8 +26,9 @@ if (from) {
       console.log('event CREATE_DEVICE_EVENT');
       Tendarts.saveKeyInDevice('publisher', from);
       Tendarts.saveKeyInUser('publisher', from);
-      $main.fadeOut();
-      $form.fadeIn();
+      $main.fadeOut(function() {
+        $form.fadeIn();
+      });
     },
     false
   );
@@ -48,7 +49,8 @@ $form.on('submit', function(event) {
       Tendarts.saveKeyInUser('interests', interest);
     })
   );
-  $form.fadeOut();
-  $thanks.fadeIn();
+  $form.fadeOut(function() {
+    $thanks.fadeIn();
+  });
   return false;
 });
