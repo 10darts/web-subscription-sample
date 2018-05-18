@@ -1,7 +1,5 @@
 var Tendarts = window.Tendarts || {};
 
-console.log(window.location.href);
-
 var url = new URL(window.location.href);
 var from = url.searchParams.get('from');
 var $main = $('#main');
