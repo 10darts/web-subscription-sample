@@ -20,15 +20,18 @@ if (from) {
     debug: true,
     scope: '/publisher-sample/',
     serviceWorkerPath: '/publisher-sample/'
-  })
-    .then(() => {
+  });
+
+  document.addEventListener(
+    'CREATE_DEVICE_EVENT',
+    function() {
       Tendarts.saveKeyInDevice('publisher', from);
       Tendarts.saveKeynInUser('publisher', from);
-    })
-    .then(function() {
       $main.fadeOut();
       $form.fadeIn();
-    });
+    },
+    false
+  );
 }
 
 $form.on('submit', function(event) {
