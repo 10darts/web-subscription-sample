@@ -22,7 +22,7 @@ if (from) {
     serviceWorkerPath: '/publisher-sample/'
   });
 
-  window.addEventListener(
+  document.addEventListener(
     'CREATE_DEVICE_EVENT',
     function() {
       console.log('addEventListener');
