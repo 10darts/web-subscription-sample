@@ -16,7 +16,7 @@ if (from) {
     geolocation: false,
     debug: true,
     cache: false,
-    scope: '/web-subscription-sample',
+    scope: '/web-subscription-sample/',
     serviceWorkerPath: '/web-subscription-sample/'
   });
 }
