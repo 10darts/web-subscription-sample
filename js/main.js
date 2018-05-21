@@ -27,10 +27,10 @@ document.addEventListener(
     Tendarts.saveKeyInDevice('publisher', from);
     Tendarts.saveKeyInUser('publisher', from);
     var userAgent = UAParser();
-    Tendarts.saveKeyInUser('os', userAgent.os.name);
-    Tendarts.saveKeyInUser('os version', userAgent.os.version);
-    Tendarts.saveKeyInUser('browser', userAgent.browser.name);
-    Tendarts.saveKeyInUser('browser version', userAgent.browser.version);
+    Tendarts.saveKeyInDevice('os', userAgent.os.name);
+    Tendarts.saveKeyInDevice('os version', userAgent.os.version);
+    Tendarts.saveKeyInDevice('browser', userAgent.browser.name);
+    Tendarts.saveKeyInDevice('browser version', userAgent.browser.version);
     $main.fadeOut(function() {
       $form.fadeIn();
     });
