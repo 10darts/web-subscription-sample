@@ -16,8 +16,8 @@ if (from) {
     geolocation: false,
     debug: true,
     cache: false,
-    scope: '/publisher-sample/',
-    serviceWorkerPath: '/publisher-sample/'
+    scope: '/web-subscription-sample/',
+    serviceWorkerPath: '/web-subscription-sample/'
   });
 }
 
