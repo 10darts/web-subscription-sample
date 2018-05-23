@@ -73,7 +73,7 @@ body {
   max-width: 32em;
 }
 
-/* .form, */
+.form,
 .thanks {
   display: none;
 }
