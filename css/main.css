@@ -2,13 +2,6 @@
  * Globals
  */
 
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
-
 /* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,
@@ -27,7 +20,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #f6f6f6;
+  background-color: #f9f9f9;
   width: 100%;
   height: 100%;
   overflow: hidden;
